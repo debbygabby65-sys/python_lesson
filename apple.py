@@ -11,7 +11,9 @@ def divide(a, b):
 
 num1 = float(input("Enter the first number: "))
 num2 = float(input("Enter the second number: "))
+
 choice = input("Choose 1 for addition or 2 for subtraction or 3 for mutiplication or 4 for division: ")  
+
 if choice == "1":
     ans = add(num1, num2)
     print(ans)

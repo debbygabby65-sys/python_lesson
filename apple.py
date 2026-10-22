@@ -6,6 +6,7 @@ def subtract(a, b):
 
 def multiply(a, b):
     return a * b
+    
 def divide(a, b):
     return  a / b
 
@@ -17,14 +18,17 @@ choice = input("Choose 1 for addition or 2 for subtraction or 3 for mutiplicatio
 if choice == "1":
     ans = add(num1, num2)
     print(ans)
+
 elif choice == "2":
     sub = subtract(num1, num2)
     print(sub)
+
 elif choice == "3":
     sen = multiply(num1, num2)
     print(sen)
+
 elif choice == "4":
     result = divide(num1, num2)
-    print(result)
+    
 else:
     print("invalid choice")

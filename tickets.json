@@ -1,0 +1,16 @@
+[
+    {
+        "student_name": "gabby",
+        "student_id": "R003",
+        "student_age": "30",
+        "issue": "wifi",
+        "status": "open"
+    },
+    {
+        "student_name": "debby",
+        "student_id": "R003",
+        "student_age": "44",
+        "issue": "light",
+        "status": "open"
+    }
+]

@@ -165,10 +165,10 @@ def play_game():
     print("Game session ended.")
 
 if __name__ == "__main__":
-play_again = "yes"
+    play_again = "yes"
 
-while play_again == "yes":
-    play_game()
-    play_again = input("Would you like to play again? (yes/no): ").strip().lower()
+    while play_again == "yes":
+        play_game()
+        play_again = input("Would you like to play again? (yes/no): ").strip().lower()
 
-print("Thanks for playing Mystery Island!")
+    print("Thanks for playing Mystery Island!")

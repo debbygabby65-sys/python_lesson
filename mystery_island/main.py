@@ -171,4 +171,4 @@ if __name__ == "__main__":
         play_game()
         play_again = input("Would you like to play again? (yes/no): ").strip().lower()
 
-    print("Thanks for playing Mystery Island!")
+    print("Thanks for playing Mystery Island goodbye!")

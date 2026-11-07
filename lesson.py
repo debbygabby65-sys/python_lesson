@@ -36,7 +36,7 @@ elif choice == "2":
     with open("tickets.json", "r") as file:
         ticket = json.load(file)
     for key, value in ticket.items():
-        print(f"{key}: {value}")
+        print(f"{key}: {value}")  
 
 elif choice == "3":
     print("Thank you for using the student registration system. Goodbye!")

@@ -34,3 +34,34 @@ def check_number(number):
 print(check_number("45"))
 print(check_number("Debby"))
 print(check_number("100"))
+
+def check_price(price):
+    try:
+        price = float(price)
+        if price < 0:
+            raise ValueError("price cannot be negative")
+        return "price accepted"
+
+    except ValueError as error:
+        return str(error)
+     
+
+print(check_price("500"))
+print(check_price("-100"))
+print(check_price("Debby"))
+
+with open("student.txt", "w") as file:
+    file.write("My name is Debby")
+
+with open("student.txt", "a") as file:
+    file.write("\nI am learning python")
+
+with open("student.txt", "a") as file:
+    file.write("\nI am learning API development")
+
+with open("student.txt", "a") as file:
+    file.write("\nMy goal is to become a python developer")
+    
+with open("student.txt", "r") as file:
+    content = file.read()
+print(content)

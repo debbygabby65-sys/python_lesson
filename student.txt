@@ -1,0 +1,4 @@
+My name is Debby
+I am learning python
+I am learning API development
+My goal is to become a python developer

@@ -3,6 +3,7 @@
 # print(result) 
 
 import json
+import requests
 
 student = {
     "name": "Debby",
@@ -27,5 +28,10 @@ with open("user.json", "r") as file:
 print(result)
 print(result["name"])
 
+
+response = requests.get("https://jsonplaceholder.typicode.com/users/1")
+
+print(response.status_code)
+print(response.json())
 
 

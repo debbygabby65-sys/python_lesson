@@ -34,4 +34,9 @@ response = requests.get("https://jsonplaceholder.typicode.com/users/1")
 print(response.status_code)
 print(response.json())
 
+data = response.json()
+print(data["name"])
+print(data["email"])
+print(data["phone"])
+print(data["company"]["name"])
 

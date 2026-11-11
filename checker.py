@@ -76,3 +76,11 @@ print("Students grade_c:", grade_c)
 print("Students grade_d:", grade_d)
 print("Students grade_e:", grade_e)
 print("Students grade_f:", grade_f)
+
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+programming_language = input("Enter your favourite programming language: ")
+
+print(name)
+print(age)
+print(programming_language)

@@ -41,17 +41,59 @@ for customer_id, details in customers.items():
 customer_id = input("Enter your customer_id: ")
 if customer_id in customers:
     details = customers[customer_id]
+    selected_customer = details["name"]
     print(details["name"])
     print(details["phone"])
     print(details["age"])
+    product_count = 1
+    while product_count <= 3:    
+        product_name = input("Enter the product name: ")
+        price = float(input("Enter your price: "))
+        quantity = int(input("Enter your quantity: "))
+
+        inventory[product_name] = {
+            "price":  price,
+            "quantity":  quantity
+        }
+        product_count += 1
+
+    print("=============== PRODUCT INVENTORY ============")
+
+    for product_name, details in  inventory.items():
+        print(details)
+    product_name = input("Enter your product name: ")
+
+    if product_name in inventory:
+        details = inventory[product_name]
+        print("product:", product_name)
+        print("Price:", details["price"])
+        print("Quantity:", details["quantity"])
+
+    product_name = input("Enter the product name: ")
+    if product_name in inventory:
+
+        purchase_quantity = int(input("Enter how many units you want to buy: "))
+        if purchase_quantity > 0:
+            details = inventory[product_name]
+
+            if purchase_quantity <= details["quantity"]:
+                details["quantity"] = details["quantity"] - purchase_quantity
+                print("purchase successful")
+                print("Available stock:", details["quantity"])
+                total_amount = details["price"] * purchase_quantity
+                print(selected_customer)
+                print(product_name)
+                print(details["price"])
+                print(purchase_quantity)
+                print(f"{total_amount:,.2f}")
+            else:
+                print("Insufficient stock")
+                print("Available stock:", details["quantity"]) 
+        else:
+            print("Invalid purchase quantity!")        
+    else:
+        print("product not found!")
+
 else:
     print("Customer not found")
-    product_name = input("Enter the product name: ")
-    price = float(input("Enter your price: "))
-    quantity = int(input("Enter your quantity: "))
-    inventry = {
-        "product":  product_name,
-        "price":  price,
-        "quantity":  quantity
-    }
 

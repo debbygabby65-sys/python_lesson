@@ -44,8 +44,8 @@ for guest_id, details in guests.items():
 room_count = 1
 while room_count <= 3:
     Room_number = int(input("Enter your room number: "))
-    room_type = ["Single", "Double", "Suite"]
-    Room_type = input("Enter your room type: (Single, Double, Suite)")
+    room_type = ["single", "double", "suite"]
+    Room_type = input("Enter your room type: (Single, Double, Suite)").strip().lower()
         
     if Room_type in room_type :
         print("Valid room type")
@@ -65,7 +65,7 @@ while room_count <= 3:
             "Room_number":  Room_number,
             "Room_type":  Room_type,
             "Price":  price,
-            "availability":  availability
+            "availability":  availability,
         }
     else:
         print("Invalid room type")
@@ -75,9 +75,37 @@ for room_id, details in rooms.items():
     print(details["Room_type"]) 
     print(details["Price"])
     print(details["availability"])
+
 guest_id = input("Enter your guest id: ")   
-if guest_id in rooms:
-    print(Available rooms)
-room = input("Enter the room you want: ")
-if room in rooms:
-    print("a")
+if guest_id in guests :
+    print("Available rooms")
+    for room_id, details in rooms.items():
+        if details["availability"] == "Available":
+            print(room_id, details["Room_type"], details["Price"])
+    room = input("Enter the room you want: ")
+    if room in rooms:
+        print("Room exist")
+
+        if rooms[room]["availability"] == "Available":
+            print("Room is available")
+            rooms[room]["availability"] = "Occupied"
+            rooms[room]["Guest_ID"] = guest_id
+            print("Room successfully booked.")
+            
+            print("========== BOOKING COMFIRMATION =========")
+               
+            print("Guest ID:", guest_id)
+            print("Guest Name:", guests[guest_id]["name"])
+            print("Phone Number:", guests[guest_id]["phone"])
+            print("Room ID:", room)
+            print("Room Number:", rooms[room]["Room_number"])
+            print("Room Type:", rooms[room]["Room_type"])
+            print("Price per Night:", rooms[room]["Price"])
+            print("Booking Status:", rooms[room]["availability"])
+
+        else:
+            print("Room is occupied")
+    else:
+        print("Room does not exist")
+else:
+    print("Guest not found")                                 

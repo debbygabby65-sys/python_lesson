@@ -91,9 +91,13 @@ if guest_id in guests :
             rooms[room]["availability"] = "Occupied"
             rooms[room]["Guest_ID"] = guest_id
             print("Room successfully booked.")
+            total_cost = rooms[room]["Price"] * guests[guest_id]["Nights"]
             
-            print("========== BOOKING COMFIRMATION =========")
-               
+            print("========== BOOKING CONFIRMATION =========")
+            
+            print("Number of Nights:", guests[guest_id]["Nights"])
+            print("Total Accommodation Cost:", total_cost)
+ 
             print("Guest ID:", guest_id)
             print("Guest Name:", guests[guest_id]["name"])
             print("Phone Number:", guests[guest_id]["phone"])

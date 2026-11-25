@@ -7,7 +7,7 @@ rooms = {}
 count = 1
 while count <= 3:
     name = input("Enter your full name: ")
-    phone_number = input("Enter your phone number: ")
+    phone_number = input("Enter your phone number: ").strip()
     age = int(input("Enter your age: "))
     number_of_nights = int(input("Enter number of night u intend to stay: "))
     
@@ -42,33 +42,48 @@ for guest_id, details in guests.items():
     print(details["Nights"])
 
 room_count = 1
+
 while room_count <= 3:
     Room_number = int(input("Enter your room number: "))
-    room_type = ["single", "double", "suite"]
-    Room_type = input("Enter your room type: (Single, Double, Suite)").strip().lower()
-        
-    if Room_type in room_type :
-        print("Valid room type")
-        price = float(input("Enter price per night: "))
-        if price <= 0:
-            print("price must be greater than zero")
-            
-        else:
-            print("Price accepted")
-            availability = "Available"
-            room_number = 100 + room_count
-            room_id = "ROOM" + str(room_number)
-            print("room_id", room_id)
-            room_count += 1
-            
-            rooms[room_id] = {
-            "Room_number":  Room_number,
-            "Room_type":  Room_type,
-            "Price":  price,
-            "availability":  availability,
-        }
+
+    room_exists = False
+
+    for room_id, details in rooms.items():
+        if details["Room_number"] == Room_number:
+            room_exists = True
+            break
+
+    if room_exists:
+        print("This room number already exists. Enter another number.")
+
     else:
-        print("Invalid room type")
+        room_type = ["single", "double", "suite"]
+        Room_type = input("Enter your room type: ").strip().lower()
+
+        if Room_type in room_type:
+            print("Valid room type")
+
+            price = float(input("Enter price per night: "))
+
+            if price <= 0:
+                print("Price must be greater than zero")
+            else:
+                availability = "Available"
+                room_number = 100 + room_count
+                room_id = "ROOM" + str(room_number)
+
+                rooms[room_id] = {
+                    "Room_number": Room_number,
+                    "Room_type": Room_type,
+                    "Price": price,
+                    "availability": availability
+                }
+
+                room_count += 1
+                print("Room successfully registered:", room_id)
+
+        else:
+            print("Invalid room type")
 for room_id, details in rooms.items():
     print("room_id", room_id)
     print(details["Room_number"])   

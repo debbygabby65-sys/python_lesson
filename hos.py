@@ -5,6 +5,7 @@ print("===========================================")
 patients = {}
 doctors = {}
 appointments = {}
+payments = {}
 counter = 1
 while counter <= 3:
     name = input("Enter your full name: ")
@@ -100,3 +101,75 @@ while appointment_counter <= 3:
     print(doctor_id)
     print(date)
     print(time)
+
+    if patient_id not in patients:
+        print("patient ID not found")
+    elif doctor_id not in doctors:
+        print("doctor ID not found")
+    else:
+        print("Verification successful!")
+
+        appointment_number = 100 + appointment_counter
+        appointment_id = "APPT" + str(appointment_number)
+        print(appointment_id)
+        appointment_counter += 1
+
+        appointments[appointment_id]= {
+            "patient_id": patient_id,
+            "doctor_id":  doctor_id,
+            "date":  date,
+            "time": time,
+            "status": "booked"
+        }
+for appointment_id, details in appointments.items():
+    print("appointment_id", appointment_id)
+    print(details["patient_id"])
+    print(details["doctor_id"])
+    print(details["date"])
+    print(details["time"])
+    print(details["status"])
+
+payment_counter = 1
+while payment_counter <= 3:
+    appointment_id = input("Enter your appointment id: ")
+    payment_amount = float(input("Enter your payment amount: "))
+    payment_method = input("Enter your payment method: ")
+
+    if appointment_id not in appointments:
+        print("appointment_id not found")
+    else:
+        print("Appointment verified successfully!")
+        payment_number = 100 + payment_counter
+        payment_id = "PAY" + str(payment_number)
+        print(payment_id)
+        payment_counter += 1
+
+        payments[payment_id] = {
+            "appointment_id": appointment_id,
+            "amount": payment_amount,
+            "payment_method": payment_method,
+            "status": "paid"
+        }
+
+for payment_id, details in payments.items():
+    print("payment_id", payment_id)
+    print(details["appointment_id"])
+    print(details["amount"])
+    print(details["payment_method"])
+    print(details["status"])
+
+patient_id = input("Enter patient id: ")
+if patient_id not in patients:
+    print("patient id not found")
+else:
+    print(patients[patient_id]["name"])
+    print(patients[patient_id]["phone"])
+    print(patients[patient_id]["age"])
+    print(patients[patient_id]["gender"])
+    for appointment_id, details in appointments.items():
+        
+        print("appointment_id", appointment_id)
+        print(details["doctor_id"])
+        print(details["date"])
+        print(details["time"]) 
+        print(details["status"])                    

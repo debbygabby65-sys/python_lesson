@@ -167,9 +167,9 @@ else:
     print(patients[patient_id]["age"])
     print(patients[patient_id]["gender"])
     for appointment_id, details in appointments.items():
-        
-        print("appointment_id", appointment_id)
-        print(details["doctor_id"])
-        print(details["date"])
-        print(details["time"]) 
-        print(details["status"])                    
+        if details["patient_id"] == patient_id:
+            print("appointment_id", appointment_id)
+            print(details["doctor_id"])
+            print(details["date"])
+            print(details["time"]) 
+            print(details["status"])                    
